@@ -221,7 +221,7 @@ function App() {
               <div className="relative bg-gray-900 p-4 rounded-2xl shadow-xl transform -rotate-30">
                 <div className="rounded-sm -mt-8 bg-sky-300 overflow-hidden border-1 border-blue-400/30">
                   <img 
-                    src="../public/pp2.png" 
+                    src="https://res.cloudinary.com/dyzeb4vxu/image/upload/v1732190918/pp4_fu1hoo.jpg"
                     alt="Yibeltal Gashaw"
                     className="w-full h-full object-cover transform rotate-5 group-hover:scale-105 transition-transform duration-300"
                   />
