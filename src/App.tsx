@@ -61,6 +61,91 @@ const smoothHover = {
   }
 };
 
+const ContactForm = () => {
+  const [formData, setFormData] = useState({
+    name: '',
+    email: '',
+    message: ''
+  });
+
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+    
+    try {
+      const response = await fetch('https://formspree.io/f/YOUR_FORM_ID', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify(formData)
+      });
+
+      if (response.ok) {
+        alert('Message sent successfully!');
+        setFormData({ name: '', email: '', message: '' });
+      } else {
+        throw new Error('Failed to send message');
+      }
+    } catch (error) {
+      alert('Sorry, failed to send message. Please try again.');
+    }
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>) => {
+    setFormData({
+      ...formData,
+      [e.target.id]: e.target.value
+    });
+  };
+
+  return (
+    <form onSubmit={handleSubmit} className="space-y-6">
+      <div>
+        <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
+        <input
+          type="text"
+          id="name"
+          value={formData.name}
+          onChange={handleChange}
+          className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          placeholder="Your name"
+          required
+        />
+      </div>
+      <div>
+        <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
+        <input
+          type="email"
+          id="email"
+          value={formData.email}
+          onChange={handleChange}
+          className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          placeholder="someone@example.com"
+          required
+        />
+      </div>
+      <div>
+        <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
+        <textarea
+          id="message"
+          value={formData.message}
+          onChange={handleChange}
+          rows={4}
+          className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
+          placeholder="Your message..."
+          required
+        ></textarea>
+      </div>
+      <button
+        type="submit"
+        className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-lg font-semibold transition-colors"
+      >
+        Send Message
+      </button>
+    </form>
+  );
+};
+
 function App() {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
@@ -350,7 +435,7 @@ function App() {
               Feel free to reach out if you'd like to collaborate or just want to connect!
             </p>
             
-            <motion.div 
+             <motion.div 
               className="grid md:grid-cols-2 gap-12"
               initial={{ opacity: 0 }}
               whileInView={{ opacity: 1 }}
@@ -375,7 +460,7 @@ function App() {
                       type="email"
                       id="email"
                       className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="yibeltalgashaw320@gmail.com"
+                      placeholder="someone@example.com"
                       required
                     />
                   </div>
@@ -446,7 +531,7 @@ function App() {
                 Crafting exceptional digital experiences with modern technologies and innovative solutions.
               </p>
               <div className="flex space-x-4">
-                <a href="https://github.com" className="text-gray-400 hover:text-blue-400 transition-colors">
+                <a href="https://github.com/yibeltal-gashaw" className="text-gray-400 hover:text-blue-400 transition-colors">
                   <Github size={20} />
                 </a>
                 <a href="https://www.linkedin.com/in/yibeltal-gashaw21/" className="text-gray-400 hover:text-blue-400 transition-colors">
