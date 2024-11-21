@@ -221,7 +221,7 @@ function App() {
               <div className="relative bg-gray-900 p-4 rounded-2xl shadow-xl transform -rotate-30">
                 <div className="rounded-sm -mt-8 bg-sky-300 overflow-hidden border-1 border-blue-400/30">
                   <img 
-                    src="../src/images/pp2.png" 
+                    src="../public/pp2.png" 
                     alt="Yibeltal Gashaw"
                     className="w-full h-full object-cover transform rotate-5 group-hover:scale-105 transition-transform duration-300"
                   />
@@ -375,7 +375,8 @@ function App() {
                       type="email"
                       id="email"
                       className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="your@email.com"
+                      placeholder="yibeltalgashaw320@gmail.com"
+                      required
                     />
                   </div>
                   <div>
