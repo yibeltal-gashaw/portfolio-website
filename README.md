@@ -54,7 +54,7 @@ A modern, bilingual portfolio website built with React + TypeScript + Vite + Tai
 
 1. Clone the repository
    bash
-  git clone https://github.com/yibeltal-gashaw/portfolio.git
+  git clone https://github.com/yibeltal-gashaw/portfolio-website
   cd portfolio
 2. Install dependencies
    bash
@@ -129,7 +129,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 Yibeltal Gashaw
 - LinkedIn: [Yibeltal Gashaw](https://www.linkedin.com/in/yibeltal-gashaw21/)
 - Email: yibeltalgashaw320@gmail.com
-- Portfolio: [https://your-portfolio.com](https://yibeltal-gashaw.vercel.app/)
+- Portfolio: [yibeltal-gashaw](https://yibeltal-gashaw.vercel.app/)
 
 ## 🙏 Acknowledgments
 
