@@ -1,6 +1,9 @@
 import { useState, useEffect } from 'react';
 import { Github, Linkedin, Mail, ExternalLink, Code2, Database, Layout, Server, Menu, X, Home, FolderOpen, MessageSquare } from 'lucide-react';
 import { motion } from 'framer-motion';
+import { useTranslation } from 'react-i18next';
+import LanguageSwitcher from './components/LanguageSwitcher';
+import './translations/i18n';
 
 // Add these animation variants before the App function
 const fadeInUp = {
@@ -62,6 +65,7 @@ const smoothHover = {
 };
 
 const ContactForm = () => {
+  const { t } = useTranslation();
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -81,13 +85,14 @@ const ContactForm = () => {
       });
 
       if (response.ok) {
-        alert('Message sent successfully!');
+        alert(t('contact.form.success'));
         setFormData({ name: '', email: '', message: '' });
       } else {
         throw new Error('Failed to send message');
       }
+    // eslint-disable-next-line @typescript-eslint/no-unused-vars
     } catch (error) {
-      alert('Sorry, failed to send message. Please try again.');
+      alert(t('contact.form.error'));
     }
   };
 
@@ -101,38 +106,44 @@ const ContactForm = () => {
   return (
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
-        <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
+        <label htmlFor="name" className="block text-sm font-medium mb-2">
+          {t('contact.form.name')}
+        </label>
         <input
           type="text"
           id="name"
           value={formData.name}
           onChange={handleChange}
           className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          placeholder="Your name"
+          placeholder={t('contact.form.namePlaceholder')}
           required
         />
       </div>
       <div>
-        <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
+        <label htmlFor="email" className="block text-sm font-medium mb-2">
+          {t('contact.form.email')}
+        </label>
         <input
           type="email"
           id="email"
           value={formData.email}
           onChange={handleChange}
           className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          placeholder="someone@example.com"
+          placeholder={t('contact.form.emailPlaceholder')}
           required
         />
       </div>
       <div>
-        <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
+        <label htmlFor="message" className="block text-sm font-medium mb-2">
+          {t('contact.form.message')}
+        </label>
         <textarea
           id="message"
           value={formData.message}
           onChange={handleChange}
           rows={4}
           className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-          placeholder="Your message..."
+          placeholder={t('contact.form.messagePlaceholder')}
           required
         ></textarea>
       </div>
@@ -140,7 +151,7 @@ const ContactForm = () => {
         type="submit"
         className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-lg font-semibold transition-colors"
       >
-        Send Message
+        {t('contact.form.submit')}
       </button>
     </form>
   );
@@ -165,6 +176,8 @@ function App() {
     { name: 'Contact', href: '#contact' },
   ];
 
+  const { t } = useTranslation();
+
   return (
     <div className="min-h-screen bg-gradient-to-b from-gray-900 to-gray-800 text-white">
       {/* Navigation */}
@@ -179,20 +192,23 @@ function App() {
 
             {/* Desktop Navigation */}
             <div className="hidden md:flex items-center space-x-8">
-              {navLinks.map((link) => (
-                <a
-                  key={link.name}
-                  href={link.href}
-                  className="text-gray-300 hover:text-white transition-colors"
-                >
-                  {link.name}
-                </a>
-              ))}
+              <div className="flex items-center space-x-4">
+                <LanguageSwitcher />
+                {navLinks.map((link) => (
+                  <a
+                    key={link.name}
+                    href={link.href}
+                    className="text-gray-300 hover:text-white transition-colors"
+                  >
+                    {t(`nav.${link.name.toLowerCase()}`)}
+                  </a>
+                ))}
+              </div>
               <a
                 href="mailto:yibeltalgashaw320@example.com"
                 className="px-4 py-2 bg-blue-600 hover:bg-gradient-to-r from-purple-600 to-purple-40 rounded-lg transition-colors"
               >
-                Get in Touch
+                {t('nav.getInTouch')}
               </a>
             </div>
 
@@ -241,25 +257,19 @@ function App() {
                 variants={smoothSlideInFromLeft}
                 className="text-5xl md:text-7xl font-bold mb-6 bg-clip-text text-transparent bg-gradient-to-r from-blue-400 to-emerald-400"
               >
-                Hello, I'm Yibeltal Gashaw
+                {t('hero.greeting')}
               </motion.h1>
               <motion.p 
                 variants={smoothSlideInFromRight}
                 className="text-2xl md:text-3xl text-gray-300 mb-8"
               >
-                Full Stack Developer
+                {t('hero.title')}
               </motion.p>
               <motion.p 
                 variants={smoothSlideUp}
-                transition={{ 
-                  duration: 2.5,
-                  ease: [0.43, 0.13, 0.23, 0.96],
-                  opacity: { duration: 2 }
-                }}
                 className="text-xl text-gray-400 mb-12 leading-relaxed"
               >
-                Crafting robust and scalable web applications with modern technologies.
-                Passionate about creating exceptional user experiences and efficient backend solutions.
+                {t('hero.description')}
               </motion.p>
               <div className="flex justify-center gap-6">
                 <a href="https://github.com" className="text-gray-400 hover:text-blue-400 transition-colors">
@@ -278,7 +288,7 @@ function App() {
                   download // group-hover:scale-110 transition-transform duration-300
                   className="group inline-flex items-center justify-center gap-3 w-50 px-6 py-3 bg-blue-600 hover:bg-gradient-to-r from-purple-600 to-purple-400 rounded-lg text-lg font-medium text-gray-400 hover:text-white transition-all duration-300"
                 >
-                  <span className="font-medium">Download CV</span>
+                  <span className="font-medium">{t('hero.downloadCV')}</span>
                   <svg 
                     className="w-5 h-5 group-hover:scale-110 transition-transform duration-300" 
                     fill="none" 
@@ -444,42 +454,7 @@ function App() {
             >
               {/* Contact Form */}
               <div className="bg-gray-800/50 p-8 rounded-xl">
-                <form className="space-y-6">
-                  <div>
-                    <label htmlFor="name" className="block text-sm font-medium mb-2">Name</label>
-                    <input
-                      type="text"
-                      id="name"
-                      className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Your name"
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="email" className="block text-sm font-medium mb-2">Email</label>
-                    <input
-                      type="email"
-                      id="email"
-                      className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="someone@example.com"
-                      required
-                    />
-                  </div>
-                  <div>
-                    <label htmlFor="message" className="block text-sm font-medium mb-2">Message</label>
-                    <textarea
-                      id="message"
-                      rows={4}
-                      className="w-full px-4 py-2 bg-gray-700 border border-gray-600 rounded-lg focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                      placeholder="Your message..."
-                    ></textarea>
-                  </div>
-                  <button
-                    type="submit"
-                    className="w-full px-6 py-3 bg-blue-600 hover:bg-blue-700 rounded-lg text-lg font-semibold transition-colors"
-                  >
-                    Send Message
-                  </button>
-                </form>
+                <ContactForm />
               </div>
 
               {/* Contact Information */}

@@ -1,0 +1,17 @@
+{
+    "contact": {
+      "title": "አብረን እንስራ",
+      "subtitle": "ስለ አዳዲስ ፕሮጀክቶች እና እድሎች መስማት ሁልጊዜ ያስደስተኛል።",
+      "form": {
+        "name": "ስም",
+        "email": "ኢሜይል",
+        "message": "መልእክት",
+        "submit": "መልእክት ላክ",
+        "namePlaceholder": "ስምዎን ያስገቡ",
+        "emailPlaceholder": "someone@example.com",
+        "messagePlaceholder": "መልእክትዎን ያስገቡ...",
+        "success": "መልእክትዎ በተሳካ ሁኔታ ተልኳል!",
+        "error": "ይቅርታ፣ መልእክትዎን መላክ አልተቻለም። እባክዎ እንደገና ይሞክሩ።"
+      }
+    }
+  }

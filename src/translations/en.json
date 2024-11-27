@@ -1,0 +1,17 @@
+{
+    "contact": {
+      "title": "Let's Work Together",
+      "subtitle": "I'm always interested in hearing about new projects and opportunities.",
+      "form": {
+        "name": "Name",
+        "email": "Email",
+        "message": "Message",
+        "submit": "Send Message",
+        "namePlaceholder": "Your name",
+        "emailPlaceholder": "someone@example.com",
+        "messagePlaceholder": "Your message...",
+        "success": "Message sent successfully!",
+        "error": "Sorry, failed to send message. Please try again."
+      }
+    }
+  }
