@@ -1,3 +1,18 @@
+![Desktop Home](https://res.cloudinary.com/dyzeb4vxu/image/upload/v1732713477/Screenshot_2024-11-27_161221_lsxhrs.png)
+
+<details>
+<summary>More Desktop Screenshots</summary>
+
+| Projects Section | Skills Section |
+|:-------------------------:|:-------------------------:|
+|![Desktop Projects](https://res.cloudinary.com/dyzeb4vxu/image/upload/v1732713477/Screenshot_2024-11-27_161317_nare0b.png)|![Desktop Skills](https://res.cloudinary.com/dyzeb4vxu/image/upload/v1732713476/Screenshot_2024-11-27_161305_t5j5sq.png)|
+
+| Contact Section | Fotter section |
+|:-------------------------:|:-------------------------:|
+|![Desktop Contact](https://res.cloudinary.com/dyzeb4vxu/image/upload/v1732713476/Screenshot_2024-11-27_161338_hetz1i.png)|![Desktop Language](https://res.cloudinary.com/dyzeb4vxu/image/upload/v1732713483/Screenshot_2024-11-27_161347_olninb.png)|
+
+</details>
+
 # Yibeltal Gashaw - Portfolio Website
 
 A modern, bilingual portfolio website built with React + TypeScript + Vite + Tailwind CSS. The site supports two languages (English and Amharic).
